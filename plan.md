@@ -35,16 +35,27 @@ These visitor groups are based on the vehicle types and services mentioned in th
 | `listing.html` | Explain available work | Servicing, brakes, tyres, inspection preparation and general repairs; vans and farm vehicles | Open the service request form |
 | `contact.html` | Collect service request details | Registration number, problem, name, phone, optional email and preferred day | Submit the form for checking; wait for a call to confirm the time |
 
-## 4. Three real sites to review
+## 4. Review of three real workshop websites
 
-The customer brief does not provide example websites. Add three real car repair workshop websites here after researching them. For each site, note:
+These public Finnish car repair websites were reviewed for this plan on 16 November 2026. The notes focus on ideas that could be useful for a small workshop website. The examples are for inspiration; their text and design should not be copied.
 
-- Website address:
-- What works well:
-- What could be clearer:
-- One idea that could be useful for Autokorjaamo Hakola:
+**1. [CarOn – car repair workshop](https://caron.fi/en/)**
 
-Do not copy another company's text or design directly.
+- **What works well:** The homepage gives a clear overview of services and makes it easy to find individual service descriptions. It also shows contact and booking options, example prices and an explanation of how customers are kept informed.
+- **What could be clearer:** The page contains many sections, so a visitor looking only for basic contact details or a simple service request may need to scroll quite far.
+- **Idea for Autokorjaamo Hakola:** Keep the first page shorter, show the main services in a simple list and place a clear service-request link near the top. Explain that the workshop will call to confirm the appointment.
+
+**2. [InCar – vehicle damage and glass services](https://www.incar.fi/en/)**
+
+- **What works well:** The homepage makes its main services visible and provides clear actions to book a service or find a nearby workshop. It explains the damage-inspection process and has separate information for windscreen services.
+- **What could be clearer:** The website covers many services and has a large navigation menu. A first-time visitor may need to look through several options to find the correct one.
+- **Idea for Autokorjaamo Hakola:** Use a small navigation menu with familiar labels such as Home, About, Services and Contact. Keep the service request action easy to spot on every page.
+
+**3. [ALL Motors – services](https://allmotors.fi/en/services)**
+
+- **What works well:** The services page groups a wide range of repair work into separate categories and includes a clear call to book a diagnosis. It also states that the workshop works with different makes and models.
+- **What could be clearer:** The long list includes technical service names. Someone who does not know what is wrong with their vehicle may not know which category to choose.
+- **Idea for Autokorjaamo Hakola:** Describe services in everyday language and invite visitors to explain the problem in their own words instead of making them choose a technical category.
 
 ## 5. Tone and key messages
 
@@ -65,8 +76,7 @@ We also need the workshop's IT partner to provide the email address or service t
 ## 7. Next steps
 
 1. Ask the customer for the missing contact details, opening hours, logo and photos.
-2. Review three real car repair workshop websites and complete section 4.
-3. Ask the customer to review the four-page content.
-4. Connect the service request form to the workshop's email with the IT partner.
-5. Test every page, navigation link and form field.
-6. Publish the website using GitHub Pages.
+2. Ask the customer to review the four-page content and the proposed service descriptions.
+3. Connect the service request form to the workshop's email with the IT partner.
+4. Test every page, navigation link and form field.
+5. Publish the website using GitHub Pages.
