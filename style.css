@@ -553,7 +553,7 @@ footer p {
     display: none;
 }
 
-.form-field [aria-invalid="true"] {
+#service-request-form [aria-invalid="true"] {
     border: 2px solid var(--error);
     border-left-width: 0.5rem;
 }
