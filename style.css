@@ -410,3 +410,288 @@ footer p {
         font-weight: 400;
     }
 }
+
+
+/* E3: accessible service listing controls and result cards */
+.listing-section {
+    min-width: 0;
+}
+
+.listing-tools {
+    display: grid;
+    gap: 1rem;
+    margin-block: 1rem;
+}
+
+.search-field {
+    display: grid;
+    gap: 0.35rem;
+    max-width: 34rem;
+}
+
+.search-field label,
+.form-field label {
+    font-weight: 700;
+}
+
+.search-field input {
+    width: 100%;
+    min-height: 2.8rem;
+    padding: 0.65rem 0.8rem;
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    background: var(--field-bg);
+    color: var(--text);
+    font: inherit;
+}
+
+.filter-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+}
+
+.filter-group button {
+    min-height: 2.6rem;
+    padding: 0.55rem 0.9rem;
+    border: 1px solid var(--border);
+    background: var(--surface-muted);
+    color: var(--text);
+    font-size: 0.95rem;
+}
+
+.filter-group button[aria-pressed="true"] {
+    border-color: var(--brand);
+    background: var(--brand);
+    color: var(--button-text);
+}
+
+.listing-status {
+    min-height: 1.6em;
+    margin-block: 1rem;
+    color: var(--text-muted);
+    font-weight: 650;
+}
+
+.service-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+    gap: 1rem;
+}
+
+.service-card {
+    min-width: 0;
+    padding: 1rem;
+    border: 1px solid var(--border);
+    border-radius: 0.7rem;
+    background: var(--surface-muted);
+}
+
+.service-card h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.1rem;
+}
+
+.service-card p {
+    margin-block: 0.45rem;
+}
+
+.service-card .service-category {
+    color: var(--brand);
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.service-card[hidden] {
+    display: none;
+}
+
+/* E3: contact form hints, linked errors and draft controls */
+#service-request-form {
+    display: grid;
+    gap: 1.15rem;
+}
+
+.form-field {
+    display: grid;
+    min-width: 0;
+    gap: 0.35rem;
+}
+
+.form-field input,
+.form-field textarea {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    min-height: 2.8rem;
+    padding: 0.7rem 0.8rem;
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    background: var(--field-bg);
+    color: var(--text);
+    font: inherit;
+}
+
+.form-field textarea {
+    min-height: 9rem;
+    resize: vertical;
+}
+
+.field-hint {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 0.92rem;
+}
+
+.form-error {
+    margin: 0;
+    color: var(--error);
+    font-weight: 700;
+}
+
+.form-error:empty {
+    display: none;
+}
+
+.form-field [aria-invalid="true"] {
+    border: 2px solid var(--error);
+    border-left-width: 0.5rem;
+}
+
+.form-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.button-secondary {
+    border: 1px solid var(--border);
+    background: var(--surface-muted);
+    color: var(--text);
+}
+
+.draft-status,
+.form-status {
+    max-width: 48rem;
+    margin-block: 0.7rem;
+    color: var(--text-muted);
+}
+
+.form-status:not(:empty),
+.draft-status:not(:empty) {
+    padding: 0.85rem 1rem;
+    border-left: 0.3rem solid var(--brand);
+    border-radius: 0.35rem;
+    background: var(--surface-muted);
+}
+
+/* E3: native popover. Do not assign display to the popover itself:
+   the browser controls display while it is closed or open. */
+header nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 0.75rem;
+    width: 100%;
+}
+
+.info-controls {
+    position: relative;
+}
+
+.info-button {
+    min-height: 2.7rem;
+    padding: 0.5rem 0.85rem;
+    border: 1px solid var(--nav-accent);
+    background: transparent;
+    color: var(--nav-text);
+}
+
+.info-menu {
+    width: min(21rem, calc(100vw - 2rem));
+    max-width: calc(100vw - 2rem);
+    padding: 1rem 1.15rem;
+    border: 1px solid var(--border);
+    border-radius: 0.7rem;
+    background: var(--surface);
+    color: var(--text);
+    box-shadow: var(--shadow);
+}
+
+.info-menu > p {
+    margin: 0 0 0.55rem;
+}
+
+.info-menu ul {
+    display: grid;
+    gap: 0.35rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.info-menu a {
+    display: block;
+    min-height: 2.5rem;
+    padding: 0.45rem 0;
+    color: var(--brand);
+    font-weight: 650;
+}
+
+.info-button:focus-visible {
+    outline-color: var(--nav-focus);
+}
+
+/* Modern browsers place the popover directly below its trigger. A fixed
+   fallback keeps it usable in browsers without CSS anchor positioning. */
+.info-button {
+    anchor-name: --info-trigger;
+}
+
+@supports (top: anchor(bottom)) {
+    .info-menu {
+        position: absolute;
+        position-anchor: --info-trigger;
+        inset: auto;
+        top: anchor(bottom);
+        right: anchor(right);
+        margin-block-start: 0.5rem;
+    }
+}
+
+@supports not (top: anchor(bottom)) {
+    .info-menu {
+        position: fixed;
+        inset: 5.5rem 1rem auto auto;
+        margin: 0;
+    }
+}
+
+/* The status and error text remain distinguishable in both colour schemes. */
+:root {
+    --error: #9B2C20;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --error: #FF9B91;
+    }
+}
+
+@media (min-width: 48rem) {
+    header nav {
+        width: auto;
+    }
+}
+
+@media (max-width: 34rem) {
+    .form-actions {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .form-actions button {
+        width: 100%;
+    }
+}
