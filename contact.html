@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Autokorjaamo Hakola | Contact and service request</title>
     <script src="script.js" defer></script>
+    <title>Autokorjaamo Hakola | Contact and service request</title>
 </head>
 <body>
     <header>
@@ -17,6 +17,19 @@
                 <li><a href="listing.html">Services</a></li>
                 <li><a href="contact.html" aria-current="page">Contact and service request</a></li>
             </ul>
+            <div class="info-controls">
+                <button class="info-button" id="info-button" type="button" popovertarget="info-menu">
+                    Good to know
+                </button>
+                <div class="info-menu" id="info-menu" popover>
+                    <p><strong>Useful information</strong></p>
+                    <ul>
+                        <li><a href="listing.html">See our services</a></li>
+                        <li><a href="contact.html#service-request-form">Make a service request</a></li>
+                        <li><a href="about.html">About the workshop</a></li>
+                    </ul>
+                </div>
+            </div>
         </nav>
     </header>
 
@@ -27,62 +40,78 @@
 
         <section>
             <h2>Online service request</h2>
-            <form id="service-request-form">
-                <p>
-                    <label for="customer-name">Your name (required)</label><br>
-                    <input type="text" id="customer-name" name="customer-name" autocomplete="name" required>
-                </p>
+            <p>Fields marked with an asterisk (*) are required. Your draft is saved only in this browser on this device.</p>
+            <form id="service-request-form" novalidate>
+                <div class="form-field">
+                    <label for="customer-name">Your name *</label>
+                    <input type="text" id="customer-name" name="customer-name"
+                        autocomplete="name" required
+                        aria-describedby="customer-name-hint customer-name-error">
+                    <p class="field-hint" id="customer-name-hint">Enter the name we should use when contacting you.</p>
+                    <p class="form-error" id="customer-name-error"></p>
+                </div>
 
-                <p>
-                    <label for="registration">Vehicle registration number (required)</label><br>
-                    <input
-                        type="text"
-                        id="registration"
-                        name="registration"
-                        placeholder="ABC-123"
-                        pattern="[A-Za-z]{2,3}-?[0-9]{1,3}"
-                        minlength="5"
-                        maxlength="7"
-                        title="Enter a registration number, for example ABC-123. Do not enter a phone number here."
-                        required
-                    >
-                </p>
+                <div class="form-field">
+                    <label for="registration">Vehicle registration number *</label>
+                    <input type="text" id="registration" name="registration"
+                        placeholder="ABC-123" pattern="[A-Za-z]{2,3}-?[0-9]{1,3}"
+                        minlength="5" maxlength="7" autocomplete="off" required
+                        aria-describedby="registration-hint registration-error">
+                    <p class="field-hint" id="registration-hint">For example, ABC-123. Do not enter a phone number here.</p>
+                    <p class="form-error" id="registration-error"></p>
+                </div>
 
-                <p>
-                    <label for="problem">What is wrong with the vehicle, or what work do you need? (required)</label><br>
-                    <textarea id="problem" name="problem" rows="5" cols="40" required></textarea>
-                </p>
+                <div class="form-field">
+                    <label for="problem">What is wrong with the vehicle, or what work do you need? *</label>
+                    <textarea id="problem" name="problem" rows="5" minlength="10"
+                        required aria-describedby="problem-hint problem-error"></textarea>
+                    <p class="field-hint" id="problem-hint">Describe the problem or service you need in at least 10 characters.</p>
+                    <p class="form-error" id="problem-error"></p>
+                </div>
 
-                <p>
-                    <label for="phone">Your phone number (required)</label><br>
-                    <input type="tel" id="phone" name="phone" autocomplete="tel" required>
-                </p>
+                <div class="form-field">
+                    <label for="phone">Your phone number *</label>
+                    <input type="tel" id="phone" name="phone" autocomplete="tel"
+                        minlength="6" maxlength="20" pattern="[0-9+() -]{6,20}" required
+                        aria-describedby="phone-hint phone-error">
+                    <p class="field-hint" id="phone-hint">We will call this number to confirm the appointment. Use digits, spaces, +, brackets or hyphens.</p>
+                    <p class="form-error" id="phone-error"></p>
+                </div>
 
-                <p>
-                    <label for="email">Your email address (optional)</label><br>
-                    <input type="email" id="email" name="email" autocomplete="email">
-                </p>
+                <div class="form-field">
+                    <label for="email">Your email address (optional)</label>
+                    <input type="email" id="email" name="email" autocomplete="email"
+                        aria-describedby="email-hint email-error">
+                    <p class="field-hint" id="email-hint">Add an email address only if you would also like us to have it.</p>
+                    <p class="form-error" id="email-error"></p>
+                </div>
 
-                <p>
-                    <label for="preferred-day">Preferred day (required)</label><br>
-                    <input type="date" id="preferred-day" name="preferred-day" required>
-                </p>
+                <div class="form-field">
+                    <label for="preferred-day">Preferred day *</label>
+                    <input type="date" id="preferred-day" name="preferred-day" required
+                        aria-describedby="preferred-day-hint preferred-day-error">
+                    <p class="field-hint" id="preferred-day-hint">Choose today or a future date. We will call to confirm a time.</p>
+                    <p class="form-error" id="preferred-day-error"></p>
+                </div>
 
-                <p>
+                <div class="form-actions">
                     <button type="submit">Check service request</button>
-                </p>
+                    <button class="button-secondary" id="clear-draft" type="button">Clear saved draft</button>
+                </div>
             </form>
-            <p id="form-status" role="status" aria-live="polite"></p>
+            <p class="draft-status" id="draft-status" role="status" aria-live="polite"></p>
+            <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
         </section>
 
         <section>
-            <h2>About sending this form</h2>
-            <p>This is the first version of the website. The form checks the information in your browser, but it does not send an email yet. The workshop's IT partner must connect it to the workshop's email address before real requests can be delivered.</p>
+            <h2>About saving and sending this form</h2>
+            <p>This form checks your information in the browser and keeps a draft on this device. It does not send an email or store a request at the workshop. Do not save personal details on a shared device; use “Clear saved draft” when you are finished.</p>
+            <p>The workshop's IT partner must connect the form to the workshop's email before real online requests can be received.</p>
         </section>
 
         <section>
             <h2>Appointment confirmation</h2>
-            <p>After receiving a service request, the workshop will call the customer to confirm the appointment time.</p>
+            <p>After receiving a service request, the workshop will call the customer to confirm the appointment time. Sending a request does not confirm a booking.</p>
         </section>
     </main>
 
