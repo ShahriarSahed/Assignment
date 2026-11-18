@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
     <title>Autokorjaamo Hakola | About</title>
 </head>
 <body>
@@ -16,6 +17,19 @@
                 <li><a href="listing.html">Services</a></li>
                 <li><a href="contact.html">Contact and service request</a></li>
             </ul>
+            <div class="info-controls">
+                <button class="info-button" id="info-button" type="button" popovertarget="info-menu">
+                    Good to know
+                </button>
+                <div class="info-menu" id="info-menu" popover>
+                    <p><strong>Useful information</strong></p>
+                    <ul>
+                        <li><a href="listing.html">See our services</a></li>
+                        <li><a href="contact.html#service-request-form">Make a service request</a></li>
+                        <li><a href="about.html">About the workshop</a></li>
+                    </ul>
+                </div>
+            </div>
         </nav>
     </header>
 
