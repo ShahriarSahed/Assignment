@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
     <title>Autokorjaamo Hakola | Services</title>
 </head>
 <body>
@@ -16,46 +17,89 @@
                 <li><a href="listing.html" aria-current="page">Services</a></li>
                 <li><a href="contact.html">Contact and service request</a></li>
             </ul>
+            <div class="info-controls">
+                <button class="info-button" id="info-button" type="button" popovertarget="info-menu">
+                    Good to know
+                </button>
+                <div class="info-menu" id="info-menu" popover>
+                    <p><strong>Useful information</strong></p>
+                    <ul>
+                        <li><a href="listing.html">See our services</a></li>
+                        <li><a href="contact.html#service-request-form">Make a service request</a></li>
+                        <li><a href="about.html">About the workshop</a></li>
+                    </ul>
+                </div>
+            </div>
         </nav>
     </header>
 
     <main>
         <h1>Our services</h1>
-        <p>Autokorjaamo Hakola provides repair and maintenance services in Kauhava.</p>
+        <p>Autokorjaamo Hakola provides repair and maintenance services in Kauhava. Search the list or choose a category to find the service you need.</p>
 
-        <section>
-            <h2>Vehicle servicing</h2>
-            <p>Regular servicing helps keep a vehicle in good condition.</p>
-        </section>
+        <section class="listing-section" aria-labelledby="services-heading">
+            <h2 id="services-heading">Find a service</h2>
 
-        <section>
-            <h2>Brake repairs</h2>
-            <p>We carry out repairs related to vehicle brakes.</p>
-        </section>
+            <div class="listing-tools">
+                <div class="search-field">
+                    <label for="service-search">Search services</label>
+                    <input type="search" id="service-search" name="service-search"
+                        placeholder="For example, brakes or tyres" autocomplete="off">
+                </div>
 
-        <section>
-            <h2>Tyre services</h2>
-            <p>We provide tyre-related services for vehicles.</p>
-        </section>
+                <div class="filter-group" id="service-filters" aria-label="Filter services by category">
+                    <button type="button" data-filter="all" aria-pressed="true">All services</button>
+                    <button type="button" data-filter="maintenance" aria-pressed="false">Maintenance</button>
+                    <button type="button" data-filter="repairs" aria-pressed="false">Repairs</button>
+                    <button type="button" data-filter="tyres" aria-pressed="false">Tyres</button>
+                    <button type="button" data-filter="vehicles" aria-pressed="false">Vans and farm vehicles</button>
+                </div>
+            </div>
 
-        <section>
-            <h2>Inspection preparation</h2>
-            <p>We help prepare vehicles for their inspection.</p>
-        </section>
+            <p class="listing-status" id="service-status" role="status" aria-live="polite"></p>
 
-        <section>
-            <h2>General repairs</h2>
-            <p>We carry out general repair work when a vehicle needs attention.</p>
-        </section>
+            <div class="service-list" id="service-list">
+                <article class="service-card" data-category="maintenance">
+                    <h3>Vehicle servicing</h3>
+                    <p>Regular servicing helps keep a vehicle in good condition and can help identify maintenance needs.</p>
+                    <p class="service-category">Maintenance</p>
+                </article>
 
-        <section>
-            <h2>Vans and farm vehicles</h2>
-            <p>Our repair services are also available for vans and farm vehicles.</p>
+                <article class="service-card" data-category="repairs">
+                    <h3>Brake repairs</h3>
+                    <p>We carry out repairs related to vehicle brakes when your car needs attention.</p>
+                    <p class="service-category">Repairs</p>
+                </article>
+
+                <article class="service-card" data-category="tyres">
+                    <h3>Tyre services</h3>
+                    <p>We provide tyre-related services for vehicles.</p>
+                    <p class="service-category">Tyres</p>
+                </article>
+
+                <article class="service-card" data-category="maintenance">
+                    <h3>Inspection preparation</h3>
+                    <p>We help prepare vehicles for their inspection.</p>
+                    <p class="service-category">Maintenance</p>
+                </article>
+
+                <article class="service-card" data-category="repairs">
+                    <h3>General repairs</h3>
+                    <p>We carry out general repair work when a vehicle needs attention.</p>
+                    <p class="service-category">Repairs</p>
+                </article>
+
+                <article class="service-card" data-category="vehicles">
+                    <h3>Vans and farm vehicles</h3>
+                    <p>Our repair services are also available for vans and farm vehicles.</p>
+                    <p class="service-category">Vehicles</p>
+                </article>
+            </div>
         </section>
 
         <section>
             <h2>Need a repair?</h2>
-            <p>Tell us what is wrong with your vehicle using our service request page.</p>
+            <p>Tell us what is wrong with your vehicle using our service request page. We will call you to confirm the appointment time.</p>
             <p><a href="contact.html">Request a service</a></p>
         </section>
     </main>
